@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Profile from "./Profile";
+import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
+import About from "./About";
 
 function App() {
   const [item, setItem] = useState("");
@@ -24,6 +26,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <BrowserRouter>
+      <Link to="/about">About</Link>
+        <Switch>
+          <Route component={About} path="/about" />
+        </Switch>
+        </BrowserRouter>
         <Profile
           title={item.title}
           name={item.first}
