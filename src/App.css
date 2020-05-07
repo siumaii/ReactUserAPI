@@ -1,4 +1,4 @@
-header {
+.center {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,3 +10,5 @@ header {
   body {
       background-color: #1baedb;
   }
+
+  

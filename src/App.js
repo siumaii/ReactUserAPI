@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Profile from "./Components/Profile";
 import Menu from "./Components/Menu";
+import {Navbar, NavItem, DropdownMenu} from "./Components/Navbar";
 import "./App.css";
+
 
 function App() {
   const [item, setItem] = useState("");
@@ -24,10 +26,18 @@ function App() {
     fetchData();
   }
 
+
   return (
-    <div className="App">
-      <header className="App-header">
-       <Menu/>
+    <div>
+      <Navbar>
+        <NavItem icon="😃" />
+        <NavItem icon="🥳" />
+        <NavItem icon="🤩">
+        <DropdownMenu/>
+        </NavItem> 
+      </Navbar>
+      <div className="center">
+        <Menu />
         <Profile
           title={item.title}
           name={item.first}
@@ -36,9 +46,10 @@ function App() {
           picture={picture.large}
         />
         <button onClick={refresh}>Refresh Profile</button>
-      </header>
+      </div>
     </div>
   );
 }
+
 
 export default App;
