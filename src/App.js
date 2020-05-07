@@ -32,8 +32,8 @@ function App() {
       <Navbar>
         <NavItem icon="😃" />
         <NavItem icon="🥳" />
-        <NavItem icon="🤩">
-        <DropdownMenu/>
+        <NavItem icon="🔽">
+        <DropdownMenu/> 
         </NavItem> 
       </Navbar>
       <div className="center">
