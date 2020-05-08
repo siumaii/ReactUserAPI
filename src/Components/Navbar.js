@@ -25,7 +25,7 @@ function NavItem(props) {
 
 function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");
-  const [menuHeight, setMenuHeight] = useState(null)
+  const [menuHeight, setMenuHeight] = useState(null);
 
   function calcHeight(el){
       const height = el.offsetHeight;
@@ -45,16 +45,16 @@ function DropdownMenu() {
     <div className="dropdown" style={{height: menuHeight}}>
       <CSSTransition in={activeMenu === 'main'} unmountOnExit timeout={500} classNames="menu-primary" onEnter={calcHeight}>
        <div className="menu">
-        <DropDownItem leftIcon="👤" >My Profile</DropDownItem>
-        <DropDownItem leftIcon="⚙️" rightIcon=">" goToMenu="settings">
+        <DropDownItem leftIcon="👤">My Profile</DropDownItem>
+        <DropDownItem leftIcon="⚙️" goToMenu="settings">
           Settings
         </DropDownItem>
         </div>
       </CSSTransition>
 
-      <CSSTransition in={activeMenu === 'settings'} unmountOnExit timeout={500} classNames="menu-secondary" onEnter={calcHeight}>
+      <CSSTransition in={activeMenu === 'settings'} unmountOnExit timeout={500} classNames="menu-secondary" onEnter={calcHeight} >
        <div className="menu">
-        <DropDownItem leftIcon="<" goToMenu="main">
+        <DropDownItem leftIcon="🔙" goToMenu="main">
           Go back
         </DropDownItem>
         </div>

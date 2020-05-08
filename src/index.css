@@ -112,7 +112,7 @@ code {
   transition: all var(--speed) ease;
 }
 .menu-primary-exit {
-  position: absolite;
+  position: absolute;
 }
 .menu-primary-exit-active {
   transform: translateX(-110%);
@@ -128,7 +128,7 @@ code {
   transition: all var(--speed) ease;
 }
 .menu-secondary-exit {
-  
+  position: absolute;
 }
 .menu-secondary-exit-active {
   transform: translateX(110%);
