@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import {BrowserRouter, Link, Switch, Route} from 'react-router-dom';
+import Home from '../Home/Home';
+import About from '../About/About';
 
 function Navbar(props) {
   return (
@@ -31,13 +34,21 @@ function DropdownMenu() {
       const height = el.offsetHeight;
       setMenuHeight(height);
   }
+  // <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+  
   function DropDownItem(props) {
     return (
-      <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-        <span className="icon-button">{props.leftIcon}</span>
+        <BrowserRouter>
+      <Link className="menu-item" to={props.link} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+         <span className="icon-button">{props.leftIcon}</span>
         <div className="textspace">{props.children}</div>
         <span className="icon-right">{props.rightIcon}</span>
-      </a>
+        </Link>
+        <Switch>
+            <Route component={About} path="/about" />
+            <Route component={Home} path="/" />
+          </Switch>
+       </BrowserRouter>
     );
   }
 
@@ -46,7 +57,7 @@ function DropdownMenu() {
       <CSSTransition in={activeMenu === 'main'} unmountOnExit timeout={500} classNames="menu-primary" onEnter={calcHeight}>
        <div className="menu">
         <DropDownItem leftIcon="👤">My Profile</DropDownItem>
-        <DropDownItem leftIcon="⚙️" goToMenu="settings">
+        <DropDownItem leftIcon="⚙️" goToMenu="settings" link="/">
           Settings
         </DropDownItem>
         </div>
@@ -54,7 +65,7 @@ function DropdownMenu() {
 
       <CSSTransition in={activeMenu === 'settings'} unmountOnExit timeout={500} classNames="menu-secondary" onEnter={calcHeight} >
        <div className="menu">
-        <DropDownItem leftIcon="🔙" goToMenu="main">
+        <DropDownItem leftIcon="🔙" goToMenu="main" link="/about">
           Go back
         </DropDownItem>
         </div>
