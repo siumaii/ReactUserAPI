@@ -19,6 +19,9 @@ a {
   text-decoration: none;
 }
 
+body {
+  background-color: #e2e2e2;
+}
 .nav-item {
   width: calc(var(--nav-size) * 0.8);
   display: flex;
