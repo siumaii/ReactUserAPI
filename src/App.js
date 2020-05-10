@@ -32,12 +32,12 @@ function App() {
       <Navbar>
         <NavItem icon="😃" />
         <NavItem icon="🥳" />
-        <NavItem icon="🔽">
+        <NavItem icon="➖">
         <DropdownMenu/> 
         </NavItem> 
       </Navbar>
       <div className="center">
-        <Menu />
+      <Menu />
         <Profile
           title={item.title}
           name={item.first}

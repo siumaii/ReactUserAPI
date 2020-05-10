@@ -2,8 +2,9 @@ import React from 'react';
 import {BrowserRouter, Link, Switch, Route} from 'react-router-dom';
 import Home from '../Home/Home';
 import About from '../About/About';
+import Profile from '../Profile/Profile'
 
-function Menu(){
+function Menu(props){
 
     return(
     <BrowserRouter>
@@ -13,6 +14,7 @@ function Menu(){
           <Switch>
             <Route component={About} path="/about" />
             <Route component={Home} path="/" />
+            <Route component={Profile} path="profile"/>
           </Switch>
         </BrowserRouter>
     );

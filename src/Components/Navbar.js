@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
-import {BrowserRouter, Link, Switch, Route} from 'react-router-dom';
-import Home from '../Home/Home';
-import About from '../About/About';
+import {BrowserRouter, Link} from "react-router-dom";
 
 function Navbar(props) {
   return (
@@ -38,17 +36,15 @@ function DropdownMenu() {
   
   function DropDownItem(props) {
     return (
-        <BrowserRouter>
-      <Link className="menu-item" to={props.link} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+       <BrowserRouter>
+       <Link to="/about">s
+      <a href={props.link} className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
          <span className="icon-button">{props.leftIcon}</span>
         <div className="textspace">{props.children}</div>
         <span className="icon-right">{props.rightIcon}</span>
+        </a>
         </Link>
-        <Switch>
-            <Route component={About} path="/about" />
-            <Route component={Home} path="/" />
-          </Switch>
-       </BrowserRouter>
+        </BrowserRouter>
     );
   }
 
@@ -56,8 +52,8 @@ function DropdownMenu() {
     <div className="dropdown" style={{height: menuHeight}}>
       <CSSTransition in={activeMenu === 'main'} unmountOnExit timeout={500} classNames="menu-primary" onEnter={calcHeight}>
        <div className="menu">
-        <DropDownItem leftIcon="👤">My Profile</DropDownItem>
-        <DropDownItem leftIcon="⚙️" goToMenu="settings" link="/">
+        <DropDownItem leftIcon="👤" link="profile">My Profile</DropDownItem>
+        <DropDownItem leftIcon="⚙️" goToMenu="settings">
           Settings
         </DropDownItem>
         </div>
@@ -65,7 +61,7 @@ function DropdownMenu() {
 
       <CSSTransition in={activeMenu === 'settings'} unmountOnExit timeout={500} classNames="menu-secondary" onEnter={calcHeight} >
        <div className="menu">
-        <DropDownItem leftIcon="🔙" goToMenu="main" link="/about">
+        <DropDownItem leftIcon="🔙" goToMenu="main">
           Go back
         </DropDownItem>
         </div>
