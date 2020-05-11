@@ -21,6 +21,10 @@ a {
 
 body {
   background-color: #e2e2e2;
+  overflow: scroll;
+}
+html{
+  overflow: hidden;
 }
 
 img {
@@ -58,6 +62,7 @@ img {
   padding: 0 1rem;
   border-bottom: var(--border);
   display: flex;
+  
 }
 
 .navbar-nav-right {
