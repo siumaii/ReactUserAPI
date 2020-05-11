@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
 
+
 function Navbar(props) {
   return (
     <nav className="navbar">
-      <ul className="navbar-nav"> {props.children}</ul>
+      <div className="navbar-nav-left">
+        <Link to="/">
+          <img src={props.logo} alt="Logo" />
+        </Link>
+      </div>
+      <div className="navbar-nav-right"> {props.children}</div>
     </nav>
   );
 }
@@ -15,8 +21,12 @@ function NavItem(props) {
 
   return (
     <li className="nav-item">
-      <Link to={props.link} className="icon-button" onClick={() => setOpen(!open)}>
-        {props.icon}
+      <Link
+        to={props.link}
+        className="icon-button"
+        onClick={() => setOpen(!open)}
+      >
+        <span>{props.icon}</span>
       </Link>
       {open && props.children}
     </li>

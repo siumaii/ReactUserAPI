@@ -2,11 +2,12 @@ import React from "react";
 import {Navbar, NavItem, DropdownMenu} from "./Components/Navbar";
 import "./App.css";
 import View from './View';
+import logo from "./Media/logo2.png";
 
 function App() {
   return (
     <div>
-      <Navbar>
+      <Navbar logo={logo}>
         <NavItem icon="〰️" link="/TBA1"/>
         <NavItem icon="➰" link="/TBA2"/>
         <NavItem icon="➖">
