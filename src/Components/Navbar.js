@@ -7,9 +7,12 @@ function Navbar(props) {
   return (
     <nav className="navbar">
       <div className="navbar-nav-left">
-        <Link to="/">
-          <img src={props.logo} alt="Logo" />
-        </Link>
+        
+        <div className="nav-logo">
+          <Link to="/">
+            <img  src={props.logo} alt="Logo" />
+          </Link>
+        </div>
       </div>
       <div className="navbar-nav-right"> {props.children}</div>
     </nav>

@@ -2,7 +2,7 @@ import React from "react";
 import {Navbar, NavItem, DropdownMenu} from "./Components/Navbar";
 import "./App.css";
 import View from './View';
-import logo from "./Media/logo2.png";
+import logo from "./Media/instagram.png";
 
 function App() {
   return (

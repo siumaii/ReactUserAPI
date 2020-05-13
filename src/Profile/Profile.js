@@ -1,45 +1,44 @@
 import React, { useState, useEffect } from "react";
-import Avatar from "../Components/Avatar"
-
+import "./Profile.css";
+import ProfilePic from "../Media/Profile_pic.jpg";
+import Gear from "../Media/gear.png";
 
 function Profile() {
-  const [item, setItem] = useState("");
-  const [picture, setPicture] = useState("");
-  const [loading, setLoading] = useState(true);
-  
-
-  async function fetchData() {
-    const response = await fetch("https://api.randomuser.me/");
-    const data = await response.json();
-    const [items] = data.results;
-    const [picture] = data.results;
-    setItem(items.name);
-    setPicture(picture.picture);
-    setLoading(false);
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  function refresh() {
-    fetchData();
-  }
   return (
-    <div>
-      <h1>Profile</h1>
-      <p>This is profile.</p>
-      <div className="center">
-        <Avatar
-          title={item.title}
-          name={item.first}
-          last={item.last}
-          loading={loading}
-          picture={picture.large}
-        />
-        <button onClick={refresh}>Refresh Avatar</button>
+    <div className="main-container">
+      <div className="container-1">
+        <div className="box-1">
+          <img className="profile-pic" src={ProfilePic} alt="Profile" />
+        </div>
+        <div className="containerbox-2">
+          <div className="container2-2">
+            <div className="name-size">andytang_travel</div>
+            <div>
+              <button>Edit Profile</button>
+            </div>
+            <div>⚙️</div>
+          </div>
+
+          <div className="container2-3">
+            <strong>Andy Tang ~</strong>
+          </div>
+          <div> Life - food - travel</div>
+        </div>
+        <div className="box-3"></div>
       </div>
     </div>
   );
 }
 
 export default Profile;
+
+/*
+<div>
+              <strong>222</strong> posts
+            </div>
+            <div>
+              <strong>Andy Tang ~</strong>
+              <div />
+              <div>Life - food - travel</div>
+            </div>
+*/
